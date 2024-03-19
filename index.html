@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interaktives Ecodesign Strategy Wheel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            padding: 20px;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .slider-container {
+
+        }
+
+        .question-text {
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+			max-width: 160px; 
+        }
+
+        .sum-text {
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="survey-title_0">EcoDesign Strategy Wheel</h1>
+
+<table>
+    <tr>
+        <th>Phasen/Kriterien</th>
+        <th>Vorstufen Produktion</th>
+        <th>Produktion</th>
+        <th>Distribution</th>
+        <th>Nutzung</th>
+        <th>End of Life</th>
+    </tr>
+    <tr>
+        <td>Idee und Gesamtkonzeption</td>
+        <td class="slider-container">
+            <div class="question-text">Innovationsgrad und Originalit&auml;t des Entwurfs</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="A1_1" oninput="updateScores()">
+            <div class="question-text">Nutzereinbindung bei der Ideenfindung und Entwicklung</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="A1_2" oninput="updateScores()">
+            <div class="question-text">Ausrichtung an den Bed&uuml;rfnissen der potentiellen Nutzer/-innen, nicht an aktuellen Modetrends</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="A1_3" oninput="updateScores()">
+        </td>
+        <td class="slider-container">
+            <div class="question-text">innovative, umweltfreundliche Produktionsweise</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="B1_1" oninput="updateScores()">
+        </td>
+        <td class="slider-container">
+            <div class="question-text">innovative Vertriebskonzepte, die helfen, Energie und Ressourcen zu sparen</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="C1_1" oninput="updateScores()">
+        </td>
+        <td class="slider-container">
+            <div class="question-text">neue Nutzungskonzepte (z.B. Nutzen statt Besitzen)</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="D1_1" oninput="updateScores()">
+        </td>
+        <td class="slider-container">
+            <div class="question-text">Gesamtkonzeption sieht die Wieder- oder Weiterverwendung von Teilen eines Produktes vor. Entsorgungsgerechtes Design: Idee/Konzeption zielt auf eine m&ouml;glichst umweltvertr&auml;gliche Entsorgung ab</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="E1_1" oninput="updateScores()">
+        </td>
+    </tr>
+    <tr>
+        <td>Material- und Energieeinsatz</td>
+        <td class="slider-container">
+            <div class="question-text">Wahl umweltvertr&auml;glicher Materialien: erneuerbar/ nachwachsend, in ausreichender Menge vorhanden, aus kontrolliert biologischem Anbau, recycelt, lokal gewonnen und verarbeitet, recyclingf&auml;hig, biologisch abbaubar, langlebig, mit niedriger inh&auml;renter Energie</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="A2_1" oninput="updateScores()">
+            <div class="question-text">Verzicht auf umwelt- und gesundheitsgef&auml;hrdende Stoffe</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="A2_2" oninput="updateScores()">
+            <input type="range" min="1" max="6" value="3" class="slider" id="A2_1" oninput="updateScores()">
+            <div class="question-text">ressourcenschonendes Design (z. B. durch Leichtbau, Miniaturisierung, Dematerialsierung usw.)</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="A2_2" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">Ressourceneffizienz: Einsparung von Rohstoffen, Wasser und Energie bei der Fertigung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B2_1" oninput="updateScores()">
+	            <div class="question-text">geringe Materialvielfalt</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B2_2" oninput="updateScores()">
+	            <div class="question-text">sortenreine Verwendung der Materialien, kein Materialmix, keine Verbundstoffe</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B2_3" oninput="updateScores()">
+	            <div class="question-text">Kennzeichnung der verwendeten Materialien und Komponenten</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B2_4" oninput="updateScores()">
+	            <div class="question-text">Verwendung von Energie, die auf &ouml;kologisch vertretbare Weise aus erneuerbaren Energiequellen gewonnen wird</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B2_5" oninput="updateScores()">
+	            <div class="question-text">lokale Fertigung, standortnahe Zulieferer</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B2_6" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">Verpackung aus umweltfreundlichen Materialien</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="C2_1" oninput="updateScores()">
+	            <div class="question-text">Mehrwegverpackung, wiederverwertbare Verpackung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="C2_2" oninput="updateScores()">
+	            <div class="question-text">Verringerung des Treibstoff- und Energieverbrauchs beim Transport</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="C2_3" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">Reduktion der Verbrauchsmaterialien (z. B. Waschmittel, Druckerfarbe, Kaffeefilter, Papier, &Ouml;l, L&ouml;sungsmittel usw.)</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D2_1" oninput="updateScores()">
+	            <div class="question-text">Reduktion des Energieverbrauchs
+in der Nutzung durch: Sparprogramme, Automatik-Funktionen, Werkseinstellungen (Defaults), technische Ma&szlig;nahmen zur Abmilderung von umweltbelastendem Verhalten (z. B. Mengenautomatik bei Waschmaschinen, Warnsignale zur Erkennung von potenziell umweltbelastendem Verhalten, Information zum aktuellen oder aggregierten Energieverbrauch)</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D2_2" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">sortenreine Trennung und R&uuml;ckf&uuml;hrung der Materialien in die nat&uuml;rlichen und technischen Kreisl&auml;ufe</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="E2_1" oninput="updateScores()">
+	            <div class="question-text">umweltvertr&auml;gliche Entsorgung, z.B. durch Kompostierbarkeit oder gute
+Verbrennungseigenschaften von Materialien</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="E2_2" oninput="updateScores()">
+	        </td>
+	    </tr>
+		<tr>
+        <td>Gestaltung und Konstruktion</td>
+        <td class="slider-container">
+            <div class="question-text">&auml;sthetische Qualit&auml;t des Entwurfs</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="A3_1" oninput="updateScores()">
+            <div class="question-text">Wertigkeit, Langlebigkeit</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="A3_2" oninput="updateScores()">
+            <div class="question-text">modularer Aufbau, Wahl stabiler Konstruktionsmechanismen</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="A3_3" oninput="updateScores()">
+        </td>
+        <td class="slider-container">
+            <div class="question-text">technisch hochwertige Verarbeitung, geringe Verschlei&szlig;anf&auml;lligkeit</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="B3_1" oninput="updateScores()">
+            <div class="question-text">Variabilit&auml;t, Multifunktionalit&auml;t, Anpassungsf&auml;higkeit</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="B3_2" oninput="updateScores()">
+            <div class="question-text">M&ouml;glichkeit zum Upgrading (Ersatz veralteter Bauteile, z. B. bei hochwertigen technischen Ger&auml;ten) oder Refurbishing (Überholung und Instandsetzung zum Zweck des Wiederverkaufs)</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="B3_3" oninput="updateScores()">
+            <div class="question-text">logistikgerechte Fertigung: Reduktion von Produktvolumen und -gewicht (z. B. durch Klappmechanismen, die einfache Zerlegbarkeit des Produkts usw.)</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="B3_4" oninput="updateScores()">
+        </td>
+        <td class="slider-container">
+            <div class="question-text">wenig, leichte Verpackung</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="C3_1" oninput="updateScores()">
+            <div class="question-text">Verringerung des Ladeund Stauraumbedarfs</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="C3_2" oninput="updateScores()">
+        </td>
+        <td class="slider-container">
+            <div class="question-text">selbsterkl&auml;rend, intuitiv verst&auml;ndlich</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="D3_1" oninput="updateScores()">
+            <div class="question-text">nutzerfreundlich, einfach bedienbar, fehlerverzeihend</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="D3_2" oninput="updateScores()">
+            <div class="question-text">gut lesbare und leicht verst&auml;ndliche Produktgrafik, Men&uuml;f&uuml;hrung und Bedienungsanleitung</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="D3_3" oninput="updateScores()">
+            <div class="question-text">wartungsfreundlich, leicht und umweltvertr&auml;glich zu reinigen</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="D3_4" oninput="updateScores()">
+            <div class="question-text">reparaturf&auml;hig</div>
+            <input type="range" min="1" max="6" value="3" class="slider" id="D3_5" oninput="updateScores()">
+		        </td>
+		        <td class="slider-container">
+		            <div class="question-text">leichte Demontierbarkeit der einzelnen Bauteile, m&ouml;glichst mit Standardwerkzeugen</div>
+		            <input type="range" min="1" max="6" value="3" class="slider" id="E3_1" oninput="updateScores()">
+		            <div class="question-text">Separierbarkeit von Materialien/Schadstoffen/ Batterien, um sie umweltgerecht entsorgen zu k&ouml;nnen</div>
+		            <input type="range" min="1" max="6" value="3" class="slider" id="E3_2" oninput="updateScores()">
+		        </td>
+		    </tr>
+			
+			
+			
+			<tr>
+	        <td>Schadstoffe (in Luft, Wasser, Boden) und Abf&auml;lle</td>
+	        <td class="slider-container">
+	            <div class="question-text">Wahl umweltvertr&auml;glicher Materialien: erneuerbar/nachwachsend, in ausreichender Menge vorhanden, aus kontrolliert biologischem Anbau, recycelt, lokal gewonnen und verarbeitet, recyclingf&auml;hig, biologisch abbaubar, langlebig, mit niedriger inh&auml;renter Energie</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="A4_1" oninput="updateScores()">
+	            <div class="question-text">Verzicht auf umwelt- und gesundheitsgef&auml;hrdende Stoffe</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="A4_2" oninput="updateScores()">
+	            <div class="question-text">ressourcenschonendes Design (z. B. durch Leichtbau, Miniaturisierung, Dematerialsierung usw.)</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="A4_3" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">emissionsarme Fertigung, Vermeidung von L&auml;rm und Geruch</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B4_1" oninput="updateScores()">
+	            <div class="question-text">CO2-Reduktion, klimaneutrale Fertigung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B4_2" oninput="updateScores()">
+	            <div class="question-text">Schadstoff- und Abfallvermeidung/- verminderung bei der Fertigung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B4_3" oninput="updateScores()">
+	            <div class="question-text">Anwendung der besten verf&uuml;gbaren Techniken (BVT), vgl. BVT-Merkbl&auml;tter zur europ&auml;ischen Richtlinie &uuml;ber die integrierte Vermeidung und Verminderung von Umweltverschmutzung (IVU-Richtlinie)</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B4_4" oninput="updateScores()">
+	            <div class="question-text">Aufbereitung von Schmutzwasser u.a. Produktionsr&uuml;ckst&auml;nden</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B4_5" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">Reduktion der Emissionen durch effiziente Logistik</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="C4_1" oninput="updateScores()">
+	            <div class="question-text">Wahl umweltfreundlicher Transportmittel, Verzicht auf Luftfracht</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="C4_2" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">Schadstoffvermeidung/-verminderung bei der Nutzung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D4_1" oninput="updateScores()">
+	            <div class="question-text">Abfallvermeidung/-verminderung bei der Nutzung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D4_2" oninput="updateScores()">
+			        </td>
+			        <td class="slider-container">
+			            <div class="question-text">Reduktion der Emissionen durch effiziente Logistik</div>
+			            <input type="range" min="1" max="6" value="3" class="slider" id="E4_1" oninput="updateScores()">
+			            <div class="question-text">Wahl umweltfreundlicher Transportmittel, Verzicht auf Luftfracht</div>
+			            <input type="range" min="1" max="6" value="3" class="slider" id="E4_2" oninput="updateScores()">
+			        </td>
+			    </tr>
+				
+				
+				
+			
+			
+			<tr>
+	        <td>Sozial- und Gesundheitsvertr&auml;glichkeit</td>
+	        <td class="slider-container">
+	            <div class="question-text">Verzicht auf gesundheitsgef&auml;hrdende Stoffe und Verfahren bei der Rohstoffgewinnung und -verarbeitung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="A4_1" oninput="updateScores()">
+	            <div class="question-text">Einhaltung der ILO-Kernarbeitsnormen</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="A4_2" oninput="updateScores()">
+	            <div class="question-text">funktions- und materialgerechte Gestaltung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="A4_3" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">Einhaltung der ILO-Kernarbeitsnormen</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B4_1" oninput="updateScores()">
+	            <div class="question-text">keine Kinderarbeit, sozial gerechte Arbeitsbedingungen, eine angemessene Bezahlung, keine Behinderung von Betriebsrat/ Gewerkschaften</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B4_2" oninput="updateScores()">
+	            <div class="question-text">keine gesundheitsgef&auml;hrdenden Verarbeitungsund Veredelungsprozesse, Schutz der Biodiversit&auml;t</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B4_3" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">Beachtung von Verbraucher- und Datenschutz</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="C4_1" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">Sicherheit bei der Nutzung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D4_1" oninput="updateScores()">
+	            <div class="question-text">ergonomische Handhabung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D4_2" oninput="updateScores()">
+	            <div class="question-text">keine toxischen/gesundheitsge- f&auml;hrdenden Substanzen im Endprodukt</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D4_3" oninput="updateScores()">
+	            <div class="question-text">Vermeidung/Reduzierung von L&auml;rm, geringe Strahlenbelastung (v. a. bei IT-Produkten relevant)</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D4_4" oninput="updateScores()">
+			        </td>
+			        <td class="slider-container">
+			            <div class="question-text">Anwendung sozial- und gesundheitsvertr&auml;glicher Verwertungs- und Entsorgungsverfahren</div>
+			            <input type="range" min="1" max="6" value="3" class="slider" id="E4_1" oninput="updateScores()">
+			        </td>
+			    </tr>
+			
+				
+			
+			<tr>
+	        <td>Produktkommunikation und Serviceleistungen</td>
+	        <td class="slider-container">
+	            <div class="question-text">symbolischer Gehalt, Zeichenfunktion des Designs</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="A5_1" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">Einsatz ressoucenschonender Kommunikationsformate und -medien (z. B. digitale Bedienungsanleitung, Verwendung von Recyclingpapier bei Druckerzeugnissen usw.)</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="B5_1" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">gute und verbrauchergerechte Produktinformation</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="C5_1" oninput="updateScores()">
+	            <div class="question-text">Hinweis auf h&ouml;here Folgekosten (z. B. durch Stromverbrauch, Verbrauchsmaterialien wie Druckerpatronen, Kaffeetabs usw.)</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="C5_2" oninput="updateScores()">
+	            <div class="question-text">Kundenfreundlichkeit und faire Vertragsgestaltung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="C5_3" oninput="updateScores()">
+	        </td>
+	        <td class="slider-container">
+	            <div class="question-text">klar, verst&auml;ndlich, tranparent</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D5_1" oninput="updateScores()">
+	            <div class="question-text">Hinweise f&uuml;r eine umweltgerechte Verwendung auf dem Produkt oder in der Gebrauchsanleitung</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D5_2" oninput="updateScores()">
+	            <div class="question-text">Verbraucherinformation (Produktkennzeichnung, z. B. Blauer Engel usw.)</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D5_3" oninput="updateScores()">
+	            <div class="question-text">Reparatur- und Wartungsangebot</div>
+	            <input type="range" min="1" max="6" value="3" class="slider" id="D5_4" oninput="updateScores()">
+			        </td>
+			        <td class="slider-container">
+			            <div class="question-text">R&uuml;cknahmesystem</div>
+			            <input type="range" min="1" max="6" value="3" class="slider" id="E5_1" oninput="updateScores()">
+			            <div class="question-text">Upgrading-, Refurbishingangebot</div>
+			            <input type="range" min="1" max="6" value="3" class="slider" id="E5_2" oninput="updateScores()">
+			            <div class="question-text">Hinweise f&uuml;r eine umweltgerechte Entsorgung auf dem Produkt oder in der Gebrauchsanleitung</div>
+			            <input type="range" min="1" max="6" value="3" class="slider" id="E5_3" oninput="updateScores()">
+			        </td>
+			    </tr>
+			
+								
+				
+			<tr>
+			    <th>Summe</th>
+			    <td id="sum-col-A"></td>
+			    <td id="sum-col-B"></td>
+			    <td id="sum-col-C"></td>
+			    <td id="sum-col-D"></td>
+			    <td id="sum-col-E"></td>
+			</tr>
+		</table>
+
+<script>
+function updateScores() {
+    let totals = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+    let counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+
+    document.querySelectorAll('.slider').forEach(function(slider) {
+        let id = slider.id;
+        let col = id.charAt(0); // Get the column letter
+        let value = parseInt(slider.value, 10);
+
+        totals[col] += value;
+        counts[col]++;
+    });
+
+    // Update sum for each column
+    for (let col in totals) {
+		// Beispiel für den Zugriff auf das Element:
+		let sumElementId = `sum-col-${col}`;
+		document.getElementById(sumElementId).textContent = `Summe: ${totals[col]}, Durchschnitt: ${(totals[col] / counts[col]).toFixed(2)}`;
+
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateScores();
+    document.querySelectorAll('.slider').forEach(slider => {
+        slider.addEventListener('input', updateScores);
+    });
+});
+</script>
+
+		</body>
+		</html>
+		
