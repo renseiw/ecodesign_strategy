@@ -100,9 +100,8 @@
             <input type="range" min="1" max="6" value="3" class="slider" id="A2_1" oninput="updateScores()">
             <div class="question-text">Verzicht auf umwelt- und gesundheitsgef&auml;hrdende Stoffe</div>
             <input type="range" min="1" max="6" value="3" class="slider" id="A2_2" oninput="updateScores()">
-            <input type="range" min="1" max="6" value="3" class="slider" id="A2_1" oninput="updateScores()">
             <div class="question-text">ressourcenschonendes Design (z. B. durch Leichtbau, Miniaturisierung, Dematerialsierung usw.)</div>
-            <input type="range" min="1" max="6" value="3" class="slider" id="A2_2" oninput="updateScores()">
+            <input type="range" min="1" max="6" value="3" class="slider" id="A2_3" oninput="updateScores()">
 	        </td>
 	        <td class="slider-container">
 	            <div class="question-text">Ressourceneffizienz: Einsparung von Rohstoffen, Wasser und Energie bei der Fertigung</div>
@@ -181,9 +180,9 @@ Verbrennungseigenschaften von Materialien</div>
 		        </td>
 		        <td class="slider-container">
 		            <div class="question-text">leichte Demontierbarkeit der einzelnen Bauteile, m&ouml;glichst mit Standardwerkzeugen</div>
-		            <input type="range" min="1" max="6" value="3" class="slider" id="E3_1" oninput="updateScores()">
+		            <input type="range" min="1" max="6" value="3" class="slider" id="E3_6" oninput="updateScores()">
 		            <div class="question-text">Separierbarkeit von Materialien/Schadstoffen/ Batterien, um sie umweltgerecht entsorgen zu k&ouml;nnen</div>
-		            <input type="range" min="1" max="6" value="3" class="slider" id="E3_2" oninput="updateScores()">
+		            <input type="range" min="1" max="6" value="3" class="slider" id="E3_7" oninput="updateScores()">
 		        </td>
 		    </tr>
 			
@@ -225,9 +224,9 @@ Verbrennungseigenschaften von Materialien</div>
 			        </td>
 			        <td class="slider-container">
 			            <div class="question-text">Reduktion der Emissionen durch effiziente Logistik</div>
-			            <input type="range" min="1" max="6" value="3" class="slider" id="E4_1" oninput="updateScores()">
+			            <input type="range" min="1" max="6" value="3" class="slider" id="E4_3" oninput="updateScores()">
 			            <div class="question-text">Wahl umweltfreundlicher Transportmittel, Verzicht auf Luftfracht</div>
-			            <input type="range" min="1" max="6" value="3" class="slider" id="E4_2" oninput="updateScores()">
+			            <input type="range" min="1" max="6" value="3" class="slider" id="E4_4" oninput="updateScores()">
 			        </td>
 			    </tr>
 				
@@ -328,7 +327,6 @@ Verbrennungseigenschaften von Materialien</div>
 		
 <button id="export-btn">Daten in CSV exportieren</button>
 
-
 <script>
 function updateScores() {
     let totals = { A: 0, B: 0, C: 0, D: 0, E: 0 };
@@ -336,19 +334,16 @@ function updateScores() {
 
     document.querySelectorAll('.slider').forEach(function(slider) {
         let id = slider.id;
-        let col = id.charAt(0); // Get the column letter
+        let col = id.charAt(0); 
         let value = parseInt(slider.value, 10);
 
         totals[col] += value;
         counts[col]++;
     });
 
-    // Update sum for each column
     for (let col in totals) {
-		// Beispiel für den Zugriff auf das Element:
-		let sumElementId = `sum-col-${col}`;
-		document.getElementById(sumElementId).textContent = `Summe: ${totals[col]}, Durchschnitt: ${(totals[col] / counts[col]).toFixed(2)}`;
-
+        let sumElementId = `sum-col-${col}`;
+        document.getElementById(sumElementId).textContent = `Summe: ${totals[col]}, Durchschnitt: ${(totals[col] / counts[col]).toFixed(2)}`;
     }
 }
 
@@ -359,21 +354,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-    // EXPORT
 function exportTableToCSV() {
     let csv = [];
     const rows = document.querySelectorAll("table tr");
 
     for (const row of rows) {
         const rowData = [...row.querySelectorAll("th, td")].map(cell => {
-            let text = cell.innerText.replace(/,/g, ''); // Kommas entfernen, um das CSV-Format nicht zu stören
-            return `"${text}"`; // Text mit Anführungszeichen für CSV
+            let text = cell.innerText.replace(/,/g, '');
+            return `"${text}"`;
         }).join(",");
         csv.push(rowData);
     }
 
-    // CSV-Datei erzeugen und herunterladen
     const csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
     const downloadLink = document.createElement("a");
     downloadLink.download = "ecodesign_strategy_wheel.csv";
@@ -384,9 +376,8 @@ function exportTableToCSV() {
     document.body.removeChild(downloadLink);
 }
 
-
+document.getElementById('export-btn').addEventListener('click', exportTableToCSV);
 </script>
 
-		</body>
-		</html>
-		
+</body>
+</html>
