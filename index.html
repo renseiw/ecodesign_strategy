@@ -41,6 +41,16 @@
             font-weight: bold;
             margin-top: 4px;
         }
+		
+        #export-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -314,6 +324,10 @@ Verbrennungseigenschaften von Materialien</div>
 			    <td id="sum-col-E"></td>
 			</tr>
 		</table>
+		
+		
+<button id="export-btn">Daten in CSV exportieren</button>
+
 
 <script>
 function updateScores() {
@@ -344,6 +358,33 @@ document.addEventListener('DOMContentLoaded', function() {
         slider.addEventListener('input', updateScores);
     });
 });
+
+
+    // EXPORT
+function exportTableToCSV() {
+    let csv = [];
+    const rows = document.querySelectorAll("table tr");
+
+    for (const row of rows) {
+        const rowData = [...row.querySelectorAll("th, td")].map(cell => {
+            let text = cell.innerText.replace(/,/g, ''); // Kommas entfernen, um das CSV-Format nicht zu stören
+            return `"${text}"`; // Text mit Anführungszeichen für CSV
+        }).join(",");
+        csv.push(rowData);
+    }
+
+    // CSV-Datei erzeugen und herunterladen
+    const csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+    const downloadLink = document.createElement("a");
+    downloadLink.download = "ecodesign_strategy_wheel.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+}
+
+
 </script>
 
 		</body>
